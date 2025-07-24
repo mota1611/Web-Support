@@ -1,0 +1,94 @@
+{
+  "company_info": {
+    "name": "Sistema de Suporte",
+    "description": "Assistente de suporte técnico inteligente",
+    "contact": {
+      "email": "teste@teste.com",
+      "phone": "(11) 99999-9999",
+      "hours": "Segunda a Sexta, 8h às 18h"
+    }
+  },
+  "faq": [
+    {
+      "question": "Como redefinir minha senha?",
+      "answer": "Para redefinir sua senha, acesse a página de login e clique em 'Esqueci minha senha'. Você receberá um link por email para criar uma nova senha.",
+      "keywords": ["senha", "login", "esqueci", "redefinir", "acesso"]
+    },
+    {
+      "question": "Como faço um pagamento?",
+      "answer": "Você pode fazer pagamentos através do nosso portal, usando cartão de crédito, PIX ou boleto bancário. Acesse sua conta para ver as opções disponíveis.",
+      "keywords": ["pagamento", "pix", "boleto", "cartão", "fatura"]
+    },
+    {
+      "question": "O que fazer se minha conta foi bloqueada?",
+      "answer": "Se sua conta foi bloqueada, entre em contato conosco imediatamente. Podemos ajudar a resolver o problema e desbloquear sua conta rapidamente.",
+      "keywords": ["bloqueado", "conta", "acesso negado", "bloqueio"]
+    },
+    {
+      "question": "Como cancelar minha assinatura?",
+      "answer": "Para cancelar sua assinatura, acesse as configurações da sua conta e procure pela opção 'Cancelar assinatura'. O cancelamento será efetivado no final do período atual.",
+      "keywords": ["cancelar", "assinatura", "cancelamento", "terminar"]
+    }
+  ],
+  "common_issues": [
+    {
+      "issue": "Problemas de login",
+      "solutions": [
+        "Verifique se está usando o email correto",
+        "Confirme se a senha está correta",
+        "Tente redefinir sua senha",
+        "Limpe o cache do navegador"
+      ],
+      "keywords": ["login", "senha", "acesso", "entrar"]
+    },
+    {
+      "issue": "Problemas de pagamento",
+      "solutions": [
+        "Verifique se o cartão não está vencido",
+        "Confirme se há saldo suficiente",
+        "Tente usar outro método de pagamento",
+        "Entre em contato com seu banco"
+      ],
+      "keywords": ["pagamento", "cartão", "pix", "boleto", "fatura"]
+    },
+    {
+      "issue": "Erro de sistema",
+      "solutions": [
+        "Recarregue a página",
+        "Limpe o cache do navegador",
+        "Tente usar outro navegador",
+        "Aguarde alguns minutos e tente novamente"
+      ],
+      "keywords": ["erro", "problema", "bug", "falha", "não funciona"]
+    }
+  ],
+  "escalation_triggers": [
+    {
+      "keywords": ["urgente", "crítico", "emergência", "bloqueado"],
+      "action": "escalate_to_human",
+      "priority": "high"
+    },
+    {
+      "keywords": ["reclamação", "processo", "legal", "advogado"],
+      "action": "escalate_to_supervisor",
+      "priority": "medium"
+    }
+  ],
+  "response_templates": {
+    "greeting": [
+      "Olá! Bem-vindo ao nosso sistema de suporte. Como posso ajudá-lo hoje?",
+      "Oi! Sou seu assistente de suporte. Em que posso ser útil?",
+      "Olá! Estou aqui para ajudar. Qual é sua dúvida ou problema?"
+    ],
+    "goodbye": [
+      "Obrigado por entrar em contato! Se precisar de mais alguma coisa, estarei aqui.",
+      "Foi um prazer ajudá-lo! Tenha um ótimo dia!",
+      "Até logo! Se surgir qualquer dúvida, não hesite em perguntar."
+    ],
+    "confirmation": [
+      "Perfeito! Entendi sua solicitação. Vou trabalhar nisso agora.",
+      "Entendido! Vou resolver isso para você o mais rápido possível.",
+      "Certo! Vou cuidar disso imediatamente."
+    ]
+  }
+} 
