@@ -1,5 +1,6 @@
 <?php
 require_once 'config.php';
+require_once 'session_manager.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     jsonResponse(['error' => 'Método não permitido'], 405);
@@ -45,7 +46,7 @@ try {
     }
     
     $stmt = $pdo->prepare("
-        INSERT INTO messages (id, user_id, text, sender, created_at, file_url) 
+        INSERT INTO messages (id, user_id, text, sender, timestamp, file_url) 
         VALUES (?, ?, ?, ?, ?, ?)
     ");
     
@@ -64,10 +65,19 @@ try {
     ");
     $stmt->execute([$userId]);
     
+    $sessionManager = getSessionManager();
+    if ($sessionManager) {
+        $sessionResult = $sessionManager->updateSession($userId);
+        $sessionId = $sessionResult['sessionId'] ?? session_id();
+    } else {
+        $sessionId = session_id() ?: uniqid('session_', true);
+    }
+    
     jsonResponse([
         'success' => true,
         'message' => 'Mensagem enviada com sucesso',
-        'messageId' => $messageId
+        'messageId' => $messageId,
+        'sessionId' => $sessionId
     ]);
     
 } catch (PDOException $e) {

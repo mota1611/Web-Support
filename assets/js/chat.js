@@ -3,6 +3,7 @@ class ChatSystem {
         this.messages = [];
         this.isTyping = false;
         this.userId = this.generateUserId();
+        this.sessionId = null;
         this.init();
     }
 
@@ -70,7 +71,8 @@ class ChatSystem {
             text: message,
             sender: 'user',
             timestamp: new Date().toISOString(),
-            userId: this.userId
+            userId: this.userId,
+            sessionId: this.sessionId || null
         };
 
         this.addMessageToUI(messageData);
@@ -88,6 +90,12 @@ class ChatSystem {
 
             if (!response.ok) {
                 throw new Error('Erro ao enviar mensagem');
+            }
+
+            const responseData = await response.json();
+            if (responseData.sessionId) {
+                this.sessionId = responseData.sessionId;
+                console.log('Session ID atualizado:', this.sessionId);
             }
 
             setTimeout(() => {
